@@ -55,12 +55,13 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="keywords" content="test test">
+<meta property="og:type" content="article">
 <meta property="og:title" content="测试">
 <meta property="og:url" content="https://iblog.96ad.cn/category/测试">
 <meta property="og:site_name" content="大梦博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T10:59:53.604Z">
+<meta property="og:updated_time" content="2019-10-15T11:06:56.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试">
   <link rel="canonical" href="https://iblog.96ad.cn/category/测试">
@@ -251,8 +252,12 @@
                 
               
 
-              <time title="创建时间：2019-10-15 18:59:53" itemprop="dateCreated datePublished" datetime="2019-10-15T18:59:53+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 18:59:53 / 修改时间：19:06:56" itemprop="dateCreated datePublished" datetime="2019-10-15T18:59:53+08:00">2019-10-15</time>
             </span>
+          
+            
+
+            
           
 
           
@@ -276,6 +281,15 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/test-test/" rel="tag"># test test</a>
+            
+          </div>
+        
 
         
 
@@ -352,6 +366,19 @@
         
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
         </a>
       </div>
     
