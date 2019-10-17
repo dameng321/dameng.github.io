@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>测试</title>
-      <link href="/category/%E6%B5%8B%E8%AF%95/"/>
-      <url>/category/%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h2>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title>测试</title>
+    <url>/category/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h2>]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
 </search>
