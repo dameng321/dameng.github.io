@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"},"pace":true,"pace_theme":"pace-theme-barber-shop"},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="#—–MySql数据库操作基础—–###显示数据库    show databases;">
+<meta name="keywords" content="MySql 基本语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql常用语法">
+<meta property="og:url" content="https://iblog.96ad.cn/category/MySql常用语法/index.html">
+<meta property="og:site_name" content="大梦博客">
+<meta property="og:description" content="#—–MySql数据库操作基础—–###显示数据库    show databases;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="data:image/jpeg;base64,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">
+<meta property="og:updated_time" content="2019-10-18T03:53:15.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySql常用语法">
+<meta name="twitter:description" content="#—–MySql数据库操作基础—–###显示数据库    show databases;">
+<meta name="twitter:image" content="data:image/jpeg;base64,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">
+  <link rel="canonical" href="https://iblog.96ad.cn/category/MySql常用语法/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>MySql常用语法 | 大梦博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+      <a href="https://github.com/dameng321/dameng321.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">大梦博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">人被城市圈养 忙着长大 忙着死亡。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+    
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://iblog.96ad.cn/category/MySql常用语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大梦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大梦博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            MySql常用语法
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-18 10:59:44 / 修改时间：11:53:15" itemprop="dateCreated datePublished" datetime="2019-10-18T10:59:44+08:00">2019-10-18</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="data:image/jpeg;base64,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" alt="MySQL" title="MySQL"></p><p>#—–MySql数据库操作基础—–<br>###显示数据库<br>    show databases;</p><a id="more"></a>
+
+<h3 id="判断数据库是否已存在数据库有的话先删除"><a href="#判断数据库是否已存在数据库有的话先删除" class="headerlink" title="判断数据库是否已存在数据库有的话先删除"></a>判断数据库是否已存在数据库有的话先删除</h3><pre><code>drop database if exists 库名;</code></pre><p>###创建数据库<br>    create database 库名;</p>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><pre><code>drop database 库名;</code></pre><h3 id="使用该数据库"><a href="#使用该数据库" class="headerlink" title="使用该数据库"></a>使用该数据库</h3><pre><code>use 库名;</code></pre><h3 id="显示数据库中的表"><a href="#显示数据库中的表" class="headerlink" title="显示数据库中的表"></a>显示数据库中的表</h3><pre><code>show tables;</code></pre><h3 id="先判断表是否存在-存在先删除"><a href="#先判断表是否存在-存在先删除" class="headerlink" title="先判断表是否存在,存在先删除"></a>先判断表是否存在,存在先删除</h3><pre><code>drop table if exists 表名;</code></pre><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><pre><code>create table 表名(
+字段名1 字段类型1（规定长度）,
+字段名2 字段类型2（规定长度）,
+...
+)default charset=utf8;</code></pre><h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><pre><code>drop table 表名;</code></pre><h3 id="查看表的结构"><a href="#查看表的结构" class="headerlink" title="查看表的结构"></a>查看表的结构</h3><pre><code>describe 表名;  #可以简写为desc 表名;</code></pre><h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><pre><code>insert into 表名(要插入的字段名) values(插入的字段值);
+insert into 表名 values(插入表中所有字段的值);</code></pre><h3 id="查询表中的数据"><a href="#查询表中的数据" class="headerlink" title="查询表中的数据"></a>查询表中的数据</h3><pre><code>select * from 表名;
+select id,name from 表名;</code></pre><h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><pre><code>update 表名 set 字段名 = 新的字段值</code></pre><h3 id="修改指定数据"><a href="#修改指定数据" class="headerlink" title="修改指定数据"></a>修改指定数据</h3><pre><code>update 表名 set 字段名 = 新的字段值... where 条件表达;</code></pre><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><pre><code>delete from 表名 where 条件;</code></pre><h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><pre><code>在类型后面添加字段约束
+唯一约束：unique
+非空约束：not null
+主键约束：primary key
+唯一+非空=主键约束
+一般数字类型自增长策略：auto_increment
+
+外键约束不能在字段后直接加，要在所有字段后用逗号隔开
+外键约束：foreign key（要添加约束的字段） references 关联的表名(关联的字段名);  外键必须是另一张关联表的主键</code></pre><h3 id="查询语句格式"><a href="#查询语句格式" class="headerlink" title="查询语句格式"></a>查询语句格式</h3><pre><code>select [字段列表，表达式，函数，*] from 表名; *表示全部数据
+ distinct 去重</code></pre><h3 id="and-且-条件1-2都符合"><a href="#and-且-条件1-2都符合" class="headerlink" title="and 且 条件1,2都符合"></a>and 且 条件1,2都符合</h3><pre><code>select * from 表名 条件1 and 条件2;</code></pre><h3 id="or-或-符合条件1或条件2的数据"><a href="#or-或-符合条件1或条件2的数据" class="headerlink" title="or 或 符合条件1或条件2的数据"></a>or 或 符合条件1或条件2的数据</h3><pre><code>select * from 表名 where 条件1 or 条件2;</code></pre><h3 id="between…and-在什么什么之间的数据"><a href="#between…and-在什么什么之间的数据" class="headerlink" title="between…and..在什么什么之间的数据"></a>between…and..在什么什么之间的数据</h3><pre><code>select * from 表名 where 字段名 between 字段1 and 字段2;</code></pre><h3 id="in-查询在什么什么选项中的数据查询出来"><a href="#in-查询在什么什么选项中的数据查询出来" class="headerlink" title="in   查询在什么什么选项中的数据查询出来"></a>in   查询在什么什么选项中的数据查询出来</h3><h3 id="not-in-是in的取反把不等于的取出来"><a href="#not-in-是in的取反把不等于的取出来" class="headerlink" title="not in 是in的取反把不等于的取出来"></a>not in 是in的取反把不等于的取出来</h3><pre><code>select * from 表名 where 字段名 in (字段1,字段3,字段5);</code></pre><h3 id="order-by排序"><a href="#order-by排序" class="headerlink" title="order by排序"></a>order by排序</h3><pre><code>#把StudentInfo表按年纪从小到大排序
+SELECT * FROM StudentInfo ORDER BY age ASC;
+
+# 把StudentInfo表按年纪从大到小排序
+SELECT * FROM StudentInfo ORDER BY age DESC;</code></pre><h3 id="GROUP-BY-语法"><a href="#GROUP-BY-语法" class="headerlink" title="GROUP BY 语法"></a>GROUP BY 语法</h3><h6 id="GROUP-BY-语句根据一个或多个列对结果集进行分组。"><a href="#GROUP-BY-语句根据一个或多个列对结果集进行分组。" class="headerlink" title="GROUP BY 语句根据一个或多个列对结果集进行分组。"></a>GROUP BY 语句根据一个或多个列对结果集进行分组。</h6><h6 id="在分组的列上我们可以使用-COUNT-SUM-AVG-等函数。"><a href="#在分组的列上我们可以使用-COUNT-SUM-AVG-等函数。" class="headerlink" title="在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。"></a>在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。</h6><pre><code>SELECT column_name, function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;</code></pre>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/MySql-基本语法/" rel="tag"># MySql 基本语法</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/category/测试/" rel="next" title="测试">
+                  <i class="fa fa-chevron-left"></i> 测试
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NzEzMS8yMzYzMQ=="></div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断数据库是否已存在数据库有的话先删除"><span class="nav-number">1.</span> <span class="nav-text">判断数据库是否已存在数据库有的话先删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据库"><span class="nav-number">2.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用该数据库"><span class="nav-number">3.</span> <span class="nav-text">使用该数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示数据库中的表"><span class="nav-number">4.</span> <span class="nav-text">显示数据库中的表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先判断表是否存在-存在先删除"><span class="nav-number">5.</span> <span class="nav-text">先判断表是否存在,存在先删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">6.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除表"><span class="nav-number">7.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表的结构"><span class="nav-number">8.</span> <span class="nav-text">查看表的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">9.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询表中的数据"><span class="nav-number">10.</span> <span class="nav-text">查询表中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据"><span class="nav-number">11.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改指定数据"><span class="nav-number">12.</span> <span class="nav-text">修改指定数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据"><span class="nav-number">13.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#约束"><span class="nav-number">14.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询语句格式"><span class="nav-number">15.</span> <span class="nav-text">查询语句格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#and-且-条件1-2都符合"><span class="nav-number">16.</span> <span class="nav-text">and 且 条件1,2都符合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#or-或-符合条件1或条件2的数据"><span class="nav-number">17.</span> <span class="nav-text">or 或 符合条件1或条件2的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#between…and-在什么什么之间的数据"><span class="nav-number">18.</span> <span class="nav-text">between…and..在什么什么之间的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#in-查询在什么什么选项中的数据查询出来"><span class="nav-number">19.</span> <span class="nav-text">in   查询在什么什么选项中的数据查询出来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not-in-是in的取反把不等于的取出来"><span class="nav-number">20.</span> <span class="nav-text">not in 是in的取反把不等于的取出来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-by排序"><span class="nav-number">21.</span> <span class="nav-text">order by排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GROUP-BY-语法"><span class="nav-number">22.</span> <span class="nav-text">GROUP BY 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#GROUP-BY-语句根据一个或多个列对结果集进行分组。"><span class="nav-number">22.0.0.1.</span> <span class="nav-text">GROUP BY 语句根据一个或多个列对结果集进行分组。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在分组的列上我们可以使用-COUNT-SUM-AVG-等函数。"><span class="nav-number">22.0.0.2.</span> <span class="nav-text">在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpeg"
+      alt="大梦">
+  <p class="site-author-name" itemprop="name">大梦</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/dameng321" title="GitHub &rarr; https://github.com/dameng321" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=220 src="//music.163.com/outchain/player?type=0&id=3032833523&auto=1&height=430"></iframe>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大梦</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">1k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1 分钟</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://mist.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+</html>
