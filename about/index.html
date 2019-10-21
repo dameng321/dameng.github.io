@@ -500,7 +500,7 @@
 
 
 <script>
-NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
   guest = guest.split(',').filter(item => {
@@ -508,10 +508,10 @@ NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
   });
   new Valine({
     el: '#comments',
-    verify: false,
-    notify: false,
-    appId: 'HCO0JMT2Mb7ay8GOnT2dnRKa-gzGzoHsz# Your leancloud application appid',
-    appKey: '24kqRQCx9ruy4fBsH407fw8m# Your leancloud application appkey',
+    verify: true,
+    notify: true,
+    appId: 'sHnk6CNvqG2mUxtBJOw7rBTr-MdYXbMMI',
+    appKey: '9AQna5GQebzinOO4XSq28sGR',
     placeholder: 'ヾﾉ≧∀≦)o 来呀！吐槽一番吧！',
     avatar: 'mm',
     meta: guest,
