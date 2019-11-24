@@ -72,19 +72,18 @@
   };
 </script>
 
-  <meta name="description" content="test测试文章">
-<meta name="keywords" content="test">
+  <meta name="description" content="一、SQL注入 所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试">
-<meta property="og:url" content="https://iblog.96ad.cn/category/测试/index.html">
+<meta property="og:title" content="JavaWeb的Sql注入讲解">
+<meta property="og:url" content="https://iblog.96ad.cn/category/JavaWeb的Sql注入讲解/index.html">
 <meta property="og:site_name" content="大梦博客">
-<meta property="og:description" content="test测试文章">
+<meta property="og:description" content="一、SQL注入 所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-21T12:58:34.392Z">
+<meta property="og:updated_time" content="2019-11-24T10:59:09.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试">
-<meta name="twitter:description" content="test测试文章">
-  <link rel="canonical" href="https://iblog.96ad.cn/category/测试/">
+<meta name="twitter:title" content="JavaWeb的Sql注入讲解">
+<meta name="twitter:description" content="一、SQL注入 所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。">
+  <link rel="canonical" href="https://iblog.96ad.cn/category/JavaWeb的Sql注入讲解/">
 
 
 <script id="page-configurations">
@@ -98,7 +97,7 @@
   };
 </script>
 
-  <title>测试 | 大梦博客</title>
+  <title>JavaWeb的Sql注入讲解 | 大梦博客</title>
   
 
 
@@ -256,7 +255,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://iblog.96ad.cn/category/测试/">
+    <link itemprop="mainEntityOfPage" href="https://iblog.96ad.cn/category/JavaWeb的Sql注入讲解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大梦">
@@ -270,7 +269,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            测试
+            JavaWeb的Sql注入讲解
             
 
           
@@ -287,19 +286,11 @@
                 
               
 
-              <time title="创建时间：2019-10-15 18:59:53" itemprop="dateCreated datePublished" datetime="2019-10-15T18:59:53+08:00">2019-10-15</time>
+              <time title="创建时间：2019-11-24 18:55:57 / 修改时间：18:59:09" itemprop="dateCreated datePublished" datetime="2019-11-24T18:55:57+08:00">2019-11-24</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-21 20:58:34" itemprop="dateModified" datetime="2019-10-21T20:58:34+08:00">2019-10-21</time>
-              </span>
             
           
 
@@ -314,8 +305,8 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/category/测试/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/category/测试/" itemprop="commentCount"></span>
+    <a title="valine" href="/category/JavaWeb的Sql注入讲解/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/category/JavaWeb的Sql注入讲解/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -328,7 +319,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>8</span>
+              <span>3.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -338,7 +329,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
           
 
@@ -351,7 +342,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h2>
+        <h2 id="一、SQL注入"><a href="#一、SQL注入" class="headerlink" title="一、SQL注入"></a>一、SQL注入</h2><blockquote>
+<p>所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
+</blockquote><a id="more"></a>
+<p>上述语句摘自百度百科，可能对于有些人来说晦涩难懂，那么我举个最简单的例子，来体验这一过程；</p>
+<p>假设有一个登录表单，后台数据校验sql为<code>select * from user where username = &#39;XXX&#39; and password = &#39;XXX&#39;</code>，XXX为传入的用户名和密码，根据sql返回的结果判断登录是否成功；（方便解释，简单处理）</p>
+<p>这条sql是预先拼接好然后提交给数据库执行的，假设我们把password的内容改为1’ or ‘1’ = ‘1，注意里面的单引号！如果登录名为aaa，那么最终生成的sql便是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where username = <span class="string">'aaa'</span> and password = <span class="string">'1'</span> or <span class="string">'1'</span> = <span class="string">'1'</span></span><br></pre></td></tr></table></figure>
+
+<p>这样一来不用知道用户caojiantao的密码也能够登录成功了，更有甚者，在密码处输入”1’;drop table user;”，直接删除了数据表，十分的危险。</p>
+<p>这就是一个最简单sql注入的例子，输入包含sql命令的内容，欺骗服务器执行破坏数据。</p>
+<h3 id="二、Statement"><a href="#二、Statement" class="headerlink" title="二、Statement"></a>二、Statement</h3><p>JDBC核心接口，对象用于将SQL语句发送到数据库中。一个简单的demo演示Statement的使用；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SqlTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="comment">// 数据库配置</span></span><br><span class="line">		String url = <span class="string">"jdbc:mysql://127.0.0.1/jsplogin"</span>;</span><br><span class="line">		String name = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">		String user = <span class="string">"root"</span>;</span><br><span class="line">		String password = <span class="string">"root"</span>;</span><br><span class="line">		<span class="comment">// 登录账号密码</span></span><br><span class="line">		 String username = <span class="string">"aaa"</span>;</span><br><span class="line">	     String pwd = <span class="string">"123456"</span>;</span><br><span class="line">		 <span class="comment">//String pwd = "1' or '1' = '1";</span></span><br><span class="line">		<span class="comment">// 拼接sql</span></span><br><span class="line">		String sql = <span class="string">"select * from users where uname = '"</span> + username + <span class="string">"' and pwd = '"</span> + pwd + <span class="string">"'"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// jdbc操作</span></span><br><span class="line">			Class.forName(name);</span><br><span class="line">			Connection connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">			<span class="comment">// Statement</span></span><br><span class="line">			Statement statement = connection.createStatement();</span><br><span class="line">			ResultSet resultSet = statement.executeQuery(sql);</span><br><span class="line">			<span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">				System.out.println(resultSet.getString(<span class="string">"uname"</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException | SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码很简单，判断用户名和密码是否匹配，匹配则输出用户的昵称；</p>
+<p>根据上面sql注入的问题，我们试着把pwd传入1’ or ‘1’ = ‘1，前面的1可以随便填，运行程序可以发现输出了用户的昵称，说明sql注入成功，那么，我们该怎么避免呢？</p>
+<h3 id="三、PreparedStatement"><a href="#三、PreparedStatement" class="headerlink" title="三、PreparedStatement"></a>三、PreparedStatement</h3><p>采用字符串匹配？筛选sql命令字符串？没那么麻烦，JDBC已经有现成的处理方案了，那就是PreparedStatement；</p>
+<p>PreparedStatement继承自Statement，字面可译为预声明，强调一个预，内部包含一个预编译的sql语句，参数采用占位符?进行填充，还是看一段代码体会下；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SqlTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="comment">// 数据库配置</span></span><br><span class="line">		String url = <span class="string">"jdbc:mysql://127.0.0.1/jsplogin"</span>;</span><br><span class="line">		String name = <span class="string">"com.mysql.jdbc.Driver"</span>;</span><br><span class="line">		String user = <span class="string">"root"</span>;</span><br><span class="line">		String password = <span class="string">"root"</span>;</span><br><span class="line">		<span class="comment">// 登录账号密码</span></span><br><span class="line">		 String username = <span class="string">"aaa"</span>;</span><br><span class="line">	     String pwd = <span class="string">"123456"</span>;</span><br><span class="line">		 <span class="comment">//String pwd = "1' or '1' = '1";</span></span><br><span class="line">		<span class="comment">// 拼接sql</span></span><br><span class="line">		String sql = <span class="string">"select * from users where uname = '"</span> + username + <span class="string">"' and pwd = '"</span> + pwd + <span class="string">"'"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// jdbc操作</span></span><br><span class="line">            Class.forName(name);</span><br><span class="line">            Connection connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">            <span class="comment">// PreparedStatement</span></span><br><span class="line">            PreparedStatement preparedStatement = connection.prepareStatement(preSql);</span><br><span class="line">            preparedStatement.setString(<span class="number">1</span>, username);</span><br><span class="line">            preparedStatement.setString(<span class="number">2</span>, pwd);</span><br><span class="line">            resultSet = preparedStatement.executeQuery();</span><br><span class="line">            <span class="keyword">while</span> (resultSet.next())&#123;</span><br><span class="line">                System.out.println(resultSet.getString(<span class="string">"nickname"</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException | SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以修改pwd内容为1’ or ‘1’ = ‘1，运行程序没有任何输出，说明PreparedStatement有效地避免了sql注入问题；</p>
+<p>因为是继承关系，因而Statement具备的PreparedStatement全都有，而且PreparedStatement还具备独有的预处理功能，相比Statement，PreparedStatement好处有三点：</p>
+<blockquote>
+<p>1、提高代码的可读性，便于维护；<br>2、提高了sql执行效率；<br>3、增强了安全性，避免sql注入；</p>
+</blockquote>
+<blockquote>
+<p>文章转载于<br>作者：叫我宫城大人<br>链接：<a href="https://www.jianshu.com/p/643866408bb7" target="_blank" rel="noopener">https://www.jianshu.com/p/643866408bb7</a></p>
+</blockquote>
+
     </div>
 
     
@@ -380,12 +398,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/category/测试/">测试</a></p>
+  <p><span>本文标题:</span><a href="/category/JavaWeb的Sql注入讲解/">JavaWeb的Sql注入讲解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 大梦 的个人博客">大梦</a></p>
-  <p><span>发布时间:</span>2019年10月15日 - 18:59</p>
-  <p><span>最后更新:</span>2019年10月21日 - 20:58</p>
-  <p><span>原始链接:</span><a href="/category/测试/" title="测试">https://iblog.96ad.cn/category/测试/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://iblog.96ad.cn/category/测试/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年11月24日 - 18:55</p>
+  <p><span>最后更新:</span>2019年11月24日 - 18:59</p>
+  <p><span>原始链接:</span><a href="/category/JavaWeb的Sql注入讲解/" title="JavaWeb的Sql注入讲解">https://iblog.96ad.cn/category/JavaWeb的Sql注入讲解/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://iblog.96ad.cn/category/JavaWeb的Sql注入讲解/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">——大梦——</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -420,30 +438,21 @@
 
 
       <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/test/" rel="tag"><i class="fa fa-tag"></i> test</a>
-            
-          </div>
-        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/category/JDBC教程/" rel="next" title="JDBC教程">
+                  <i class="fa fa-chevron-left"></i> JDBC教程
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/category/MySql常用语法/" rel="prev" title="MySql常用语法">
-                  MySql常用语法 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -491,7 +500,7 @@
       
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#test"><span class="nav-number">1.</span> <span class="nav-text">test</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试文章"><span class="nav-number">1.1.</span> <span class="nav-text">测试文章</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、SQL注入"><span class="nav-number">1.</span> <span class="nav-text">一、SQL注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Statement"><span class="nav-number">1.1.</span> <span class="nav-text">二、Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、PreparedStatement"><span class="nav-number">1.2.</span> <span class="nav-text">三、PreparedStatement</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
